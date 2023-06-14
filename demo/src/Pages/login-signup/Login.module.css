@@ -1,0 +1,131 @@
+.Container{
+    width: 100%;
+    height: 749px;
+    background-color: #130f24;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxContainer{
+    width: 800px;
+    height: 500px;
+    background-color: #171525;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.lable{
+    color: white;
+    display: block;
+    text-align: start;
+    margin-bottom: 10px;
+    font-weight: 500;
+}   
+
+.miniContainer1{
+    width: 50%;
+    height: 100%;
+    border-right: solid #9fb43a 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.miniContainer2{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imglogo{
+    width: 300px;
+    margin-top: 30px;
+}
+
+.loginheading{
+    color: white;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.form{
+    background-color: #130f24;
+    padding: 20px 10px;
+    border-radius: 5px;
+}
+
+.input{
+    width: 260px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 3px;
+    border: none;
+}
+
+.submitbtn{
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    font-weight: 900;
+    background-color: #9fb43a;
+}
+
+.inpcont{
+    margin: 20px;
+}
+
+.animated{
+    color: white;
+    margin-top: 10px;
+    padding: 0 40px;
+    height: 60px;
+    overflow: hidden;
+}
+
+.line{
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 60px   ;
+}
+
+.line:first-child{
+    animation: anim 12s infinite;
+}
+
+@keyframes anim{
+    0%{
+        margin-top: 0;
+    }
+    16%{
+        margin-top: -60px;
+    }
+    33%{
+        margin-top: -120px;
+    }
+    50%{
+        margin-top: -180px;
+    }
+    66%{
+        margin-top: -120px;
+    }
+    82%{
+        margin-top: -60px;
+    }
+    100%{
+        margin-top: -380px;
+    }
+}
+
+
+/* Responsiveness */
+@media (max-width: 1250px) {
+
+}
