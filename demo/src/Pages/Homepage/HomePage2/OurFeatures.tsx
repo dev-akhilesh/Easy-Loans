@@ -26,7 +26,8 @@ export default function OurFeatures() {
       >
         <Box
           className="left-part"
-          bg="#030626"
+          // bg="#030626"
+          bg="#1B172D"
           color="white"
           padding={"60px"}
           borderRadius={"55px"}
@@ -49,7 +50,7 @@ export default function OurFeatures() {
           <Box
             className="get-started-btn"
             as="button"
-            bg="cyan"
+            backgroundColor="#52DFFD"
             borderRadius={"50px"}
             w={"200px"}
             h={"55px"}
@@ -61,11 +62,12 @@ export default function OurFeatures() {
         </Box>
         <Box
           className="right-part"
-          bg="#030626"
+          // bg="#030626"
+          bg="#1B172D"
           color="white"
           padding={"60px"}
           borderRadius={"55px"}
-          _hover={{ border: "4px solid #6200EA" }}
+          _hover={{ border: "4px solid #6935F6" }}
         >
           <Text className="left-text-1" fontSize="3xl" color="#90A4AE">
             New Loan
@@ -85,6 +87,4 @@ export default function OurFeatures() {
       </Grid>
     </Box>
   );
-};
-
-
+}
