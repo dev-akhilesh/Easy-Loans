@@ -49,10 +49,24 @@
     margin-top: 30px;
 }
 
+.imglogo2{
+    width: 100px;
+    margin-top: 30px;
+    margin: auto;
+    display: none;
+}
+
 .loginheading{
     color: white;
     font-size: 40px;
     font-weight: 800;
+}
+
+.loginheading2{
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+    display: none;
 }
 
 .form{
@@ -67,6 +81,12 @@
     padding-left: 10px;
     border-radius: 3px;
     border: none;
+}
+
+.formchange{
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .submitbtn{
@@ -90,6 +110,15 @@
     overflow: hidden;
 }
 
+.animated2{
+    color: white;
+    margin-top: 10px;
+    padding: 0 40px;
+    height: 60px;
+    overflow: hidden;
+    display: none;
+}
+
 .line{
     font-size: 20px;
     text-transform: uppercase;
@@ -99,6 +128,7 @@
 .line:first-child{
     animation: anim 12s infinite;
 }
+
 
 @keyframes anim{
     0%{
@@ -126,6 +156,92 @@
 
 
 /* Responsiveness */
-@media (max-width: 1250px) {
+@media (max-width: 850px) {
+    .miniContainer1{
+        display: none;
+    }
 
+    .animated2{
+        color: white;
+        margin-top: 10px;
+        padding: 0 40px;
+        height: 60px;
+        overflow: hidden;
+        display: block;
+    }
+
+    .imglogo2{
+        width: 70px;
+        margin-top: 30px;
+        margin: auto;
+        display: block;
+    }
+
+    .boxContainer{
+        width: 365px;
+        height: 650px;
+        background-color: #171525;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+    }
+
+    .loginheading2{
+        display: block;
+    }
+}
+
+@media (max-width: 385px) {
+    .miniContainer1{
+        display: none;
+    }
+
+    .animated2{
+        color: white;
+        margin-top: 10px;
+        padding: 0 40px;
+        height: 60px;
+        overflow: hidden;
+        display: block;
+    }
+
+    .imglogo2{
+        width: 50px;
+        margin-top: 30px;
+        margin: auto;
+        display: block;
+    }
+
+    .boxContainer{
+        width: 285px;
+        height: 550px;
+        background-color: #171525;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+    }
+
+    .loginheading2{
+        color: white;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .input{
+        width: 200px;
+        height: 30px;
+        padding-left: 10px;
+        border-radius: 3px;
+        border: none;
+    }
 }
