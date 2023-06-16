@@ -1,8 +1,8 @@
 import { Toast, useToast } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { getData } from "../../redux/AuthReducer/action";
 import style from "./Login.module.css";
 import imagelogo from "./Utiles/imagelogo.png";
+import { getData } from "../../redux/authReducer/action";
 
 //TS Interface for Login DataTypes
 export interface loginDatatype{
