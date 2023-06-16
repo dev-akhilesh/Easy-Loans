@@ -17,11 +17,11 @@ interface ChakraSliderProps {
   min: string;
   max: string;
   steps: string;
-  onChange: (newValue: number) => void; // Update the type to number
+  onChange: (newValue: number) => void;
 }
 
 export const ChakraSlider = (props: ChakraSliderProps) => {
-  const [value, setValue] = useState<number>(Number(props.amount) || 0); // Update the initial state to number
+  const [value, setValue] = useState<number>(Number(props.amount) || 0);
 
   const handleChange = (newValue: number) => {
     setValue(newValue);
@@ -42,7 +42,7 @@ export const ChakraSlider = (props: ChakraSliderProps) => {
           type="number"
           width={"20%"}
           value={value}
-          onChange={(e) => handleChange(Number(e.target.value))} // Parse the value to number
+          onChange={(e) => handleChange(Number(e.target.value))}
           border="1px solid black"
         />
       </Box>

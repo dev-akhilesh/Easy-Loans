@@ -1,7 +1,8 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Flex } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { ChakraSlider } from "../Components/slider";
 import { Link } from "react-router-dom";
+
 
 const EmiCalculator = () => {
   const [loanAmount, setLoanAmount] = useState<number>(5000);
@@ -45,15 +46,17 @@ const EmiCalculator = () => {
         backgroundColor={"#191970"}
         marginTop={"50px"}
       >
-        <Box fontSize={"40px"}>Personal Loan EMI Calculator</Box>
-        <Box fontSize={"20px"}>
+        <Box fontSize={{ base: "24px", md: "40px" }}>
+          Personal Loan EMI Calculator
+        </Box>
+        <Box fontSize={{ base: "14px", md: "20px" }}>
           Calculate your EMI and choose the most suitable product for you
         </Box>
       </Box>
 
       <Box
-        height={"400px"}
-        width="80%"
+        height={"auto"}
+        width={{ base: "90%", md: "80%" }}
         margin="auto"
         marginBottom={"100px"}
         marginTop={"100px"}
@@ -63,13 +66,16 @@ const EmiCalculator = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          fontSize={{ base: "16px", md: "24px" }}
+          marginTop={{ base: "10px", md: "0" }}
+          marginBottom={{ base: "20px", md: "0" }}
         >
           EMI CALCULATOR
         </Box>
-        <Box display={"flex"}>
-          <Box width={"50%"}>
+        <Flex flexWrap="wrap">
+          <Box width={{ base: "100%", md: "50%" }}>
             <ChakraSlider
-              name={"loan amount"}
+              name={"Loan Amount"}
               amount="5000"
               width="70%"
               min="2000"
@@ -78,7 +84,7 @@ const EmiCalculator = () => {
               onChange={handleLoanAmount}
             />
             <ChakraSlider
-              name={"Tenure"}
+              name={"Tenure (years)"}
               amount="0.25"
               width="70%"
               min="0.25"
@@ -87,7 +93,7 @@ const EmiCalculator = () => {
               onChange={handleLoanTenure}
             />
             <ChakraSlider
-              name={"Rate Of Interest"}
+              name={"Rate Of Interest (% p.a.)"}
               amount="10.25"
               width="70%"
               min="10.25"
@@ -96,8 +102,13 @@ const EmiCalculator = () => {
               onChange={handleLoanRate}
             />
           </Box>
-          <Box marginTop={"5%"} marginLeft={"10%"}>
-            <Box>Your Emi Amount</Box>
+          <Box
+            marginTop={{ base: "5%", md: "0" }}
+            marginLeft={{ base: "0", md: "10%" }}
+            width={{ base: "100%", md: "40%" }}
+            textAlign="center"
+          >
+            <Box>Your EMI Amount</Box>
             <Box fontSize={"30px"}>{emi}</Box>
             <Box fontSize={"24px"}>Total Payment</Box>
             <Box>{(emi * +loanTenure * 12).toFixed(0)}</Box>
@@ -111,11 +122,11 @@ const EmiCalculator = () => {
                 color={"white"}
                 _hover={{ backgroundColor: "pink.200" }}
               >
-                Apply Loan{" "}
+                Apply Loan
               </Button>
             </Link>
           </Box>
-        </Box>
+        </Flex>
       </Box>
     </div>
   );
