@@ -10,7 +10,7 @@ export default function OurFeatures() {
           Our Features
         </Text>
         <Text fontSize="5xl" color="" as="b" className="sub-heading-text">
-          What Should We <span>Help</span>
+          What Should We <span style={{ color: "#5E8AF9" }}>Help</span>
           <br />
           You With?
         </Text>

@@ -56,6 +56,7 @@ function TestimonialCard(props: TestimonialCardProps) {
   const { name, role, content, avatar, index } = props;
   return (
     <Flex
+      className="testimonial-card"
       boxShadow={"lg"}
       maxW={"640px"}
       direction={{ base: "column-reverse", md: "row" }}
@@ -139,10 +140,11 @@ export default function Testimonial() {
         <Text fontSize="5xl" color="" as="b" className="sub-heading-text">
           What our Loyal
           <br />
-          <span>Customer Saying</span>{" "}
+          <span style={{ color: "#5E8AF9" }}>Customer Saying</span>{" "}
         </Text>
       </Box>
       <Flex
+        className="sub-container2"
         textAlign={"center"}
         pt={10}
         justifyContent={"center"}
@@ -151,6 +153,7 @@ export default function Testimonial() {
         overflow={"hidden"}
       >
         <SimpleGrid
+          className="card-grid"
           columns={{ base: 1, xl: 2 }}
           spacing={"20"}
           m={"auto"}
