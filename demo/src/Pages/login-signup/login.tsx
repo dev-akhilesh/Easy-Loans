@@ -124,10 +124,13 @@ function Login() {
                   placeholder="Password"
                   onChange={(e:React.ChangeEvent<HTMLInputElement>)=> setLoginData({...LoginData, password : +e.target.value})}
                 />
+
               </div>
+              
               <p className={style.formchange} onClick={() => setstate(false)}>
                 New User?
               </p>
+
               <button
                 className={style.submitbtn}
                 type="submit"
