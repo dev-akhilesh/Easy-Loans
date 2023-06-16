@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { Toast, useToast } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { getData } from "../../redux/AuthReducer/action";
 import style from "./Login.module.css";
 import imagelogo from "./Utiles/imagelogo.png";
 
@@ -16,14 +18,18 @@ export interface registerDatatype{
 }
 
 function Login() {
+
+  //Chakra Toast
+  const toast = useToast();
+
+  //AuthState 
+  const [isAuth, setAuth] = useState<Boolean>(false);
+
   //State for Login register form Render
   const [state, setstate] = useState<Boolean>(true);
 
   //State for Login Data
-  const [LoginData, setLoginData] = useState<loginDatatype>({
-    email : "",
-    password : 0
-  })
+  const [LoginData, setLoginData] = useState<loginDatatype>({email : "",password : 0})
 
   //State for Register Data
   const [RegisterData, setRegisterData] = useState<registerDatatype>({
@@ -32,12 +38,42 @@ function Login() {
     password : 0
   })
 
+  //UsersData
+  const [users, setUsers] = useState<registerDatatype[]>();
+
+  useEffect(()=>{
+    getData().then((res)=>{
+      setUsers(res)
+    });
+  },[])
+
   //Submit handler for Login form
   const handleLogin=(e : React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    console.log(LoginData);
-
+    // console.log(isAuth);
+    isAuth===true ? toast({
+      title: 'login successful',
+      description: "Wellcome to the website",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    }):toast({
+      title: 'wrong credentials',
+      description: "Email or Password is Wrong ",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+    })
   }
+
+  useEffect(()=>{
+    users?.forEach((el : registerDatatype)=>{
+      if(el.email === LoginData.email && +el.password === +LoginData.password){
+        setAuth(true);
+      }
+    })
+  },[LoginData]);
+
 
   //Submit handler for Register form
   const handleRegister=(e : React.FormEvent<HTMLFormElement> )=>{
@@ -77,7 +113,6 @@ function Login() {
                   placeholder="Email"
                   onChange={(e:React.ChangeEvent<HTMLInputElement>)=> setLoginData({...LoginData, email : e.target.value})}
                 />
-                <p></p>
               </div>
               <div className={style.inpcont}>
                 <label className={style.lable} htmlFor="">
@@ -119,7 +154,6 @@ function Login() {
                   placeholder="Name"
                   onChange={(e:React.ChangeEvent<HTMLInputElement>)=> setRegisterData({...RegisterData,name : e.target.value})}
                 />
-                <p></p>
               </div>
               <div className={style.inpcont}>
                 <label className={style.lable} htmlFor="">

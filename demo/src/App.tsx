@@ -6,7 +6,6 @@ import Login from "./Pages/login-signup/login";
 function App() {
   return (
     <div className="App">
-      
     </div>
   );
 }
