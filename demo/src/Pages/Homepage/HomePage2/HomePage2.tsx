@@ -2,6 +2,7 @@ import React from "react";
 import OurFeatures from "./OurFeatures";
 import Testimonial from "./Testimonial";
 import OurBranches from "./OurBranches";
+import Footer from "./Footer";
 
 export default function Homepage2() {
   return (
@@ -9,6 +10,7 @@ export default function Homepage2() {
       <OurFeatures />
       <Testimonial />
       <OurBranches />
+      <Footer />
     </div>
   );
 }
