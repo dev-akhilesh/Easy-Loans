@@ -25,7 +25,7 @@ import {
 } from '@chakra-ui/icons';
 
 
-export default function WithSubnavigation() {
+export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 //   darkblue	#00008B	
 //   navy	#000080	
