@@ -73,7 +73,7 @@ const EmiCalculator = () => {
           EMI CALCULATOR
         </Box>
         <Flex flexWrap="wrap">
-          <Box width={{ base: "100%", md: "50%" }}>
+          <Box width={{ base: "100%", md: "50%" }} marginLeft={"50px"}>
             <ChakraSlider
               name={"Loan Amount"}
               amount="5000"
