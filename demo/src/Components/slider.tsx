@@ -29,7 +29,16 @@ export const ChakraSlider = (props: ChakraSliderProps) => {
   };
 
   return (
-    <Box width={props.width} padding={"2%"}>
+    <Box
+      width={props.width}
+      padding={"2%"}
+      style={{
+        backgroundColor: "#171525",
+        boxShadow: " rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
+        borderRadius: "5px",
+        padding: "20px",
+      }}
+    >
       <Box
         display={"flex"}
         width={"100%"}
