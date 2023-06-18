@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Box, Text } from "@chakra-ui/react";
-import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+// import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 // import { , Marker } from "react-google-maps";
 
 export default function OurBranches() {
@@ -8,12 +8,12 @@ export default function OurBranches() {
 
   // AIzaSyDuMY7rvWy4O10VHG0AvsM8N_y-cWuaQaU
 
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY || "",
+  // const { isLoaded } = useLoadScript({
+  //   googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY || "",
 
-  });
+  // });
 
-  const center = useMemo(() => ({ lat: 53.339688, lng: -6.236688 }), []);
+  // const center = useMemo(() => ({ lat: 53.339688, lng: -6.236688 }), []);
 
 
   return (
