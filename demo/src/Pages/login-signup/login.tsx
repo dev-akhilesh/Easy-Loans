@@ -5,6 +5,7 @@ import { addUser, getData } from "../../redux/authReducer/action";
 
 import style from "./Login.module.css";
 import imagelogo from "./Utiles/imagelogo.png";
+import { Navigate, useNavigate } from "react-router-dom";
 
 //TS Interface for Login DataTypes
 export interface loginDatatype {
@@ -21,6 +22,7 @@ export interface registerDatatype {
 }
 
 function Login() {
+  const nav = useNavigate();
   //Chakra Toast
   const toast = useToast();
 
@@ -75,10 +77,7 @@ function Login() {
 
   useEffect(() => {
     users?.forEach((el: registerDatatype) => {
-      if (
-        el.email === LoginData.email &&
-        el.password === LoginData.password
-      ) {
+      if (el.email === LoginData.email && el.password === LoginData.password) {
         setAuth(true);
       }
     });
@@ -87,7 +86,7 @@ function Login() {
   //Submit handler for Register form
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (RegisterData.password === "" ) {
+    if (RegisterData.password === "") {
       toast({
         title: "wrong credentials",
         description: "Please Enter valid credentials",
@@ -95,7 +94,7 @@ function Login() {
         duration: 9000,
         isClosable: true,
       });
-    }else if(RegisterData.email === ""){
+    } else if (RegisterData.email === "") {
       toast({
         title: "wrong credentials",
         description: "Please Enter valid credentials",
@@ -103,7 +102,7 @@ function Login() {
         duration: 9000,
         isClosable: true,
       });
-    }else if(RegisterData.name === ""){
+    } else if (RegisterData.name === "") {
       toast({
         title: "wrong credentials",
         description: "Please Enter valid credentials",
@@ -190,6 +189,7 @@ function Login() {
               <button className={style.submitbtn} type="submit">
                 Submit
               </button>
+              {isAuth && <Navigate to="/" replace={true} />}
               <div className={style.animated2}>
                 <div className={style.line}>Get Ready</div>
                 <div className={style.line}>Easy Loan</div>
