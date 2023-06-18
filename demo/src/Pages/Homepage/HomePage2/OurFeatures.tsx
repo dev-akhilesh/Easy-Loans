@@ -17,7 +17,10 @@ export default function OurFeatures() {
       </Box>
       <Grid
         className="sub-container2"
-        templateColumns="58% 40%"
+        templateColumns={{ base: "58% 40%", }}
+        // "58% 40%"
+
+        // base: "0 0 35px 0", md: "0 0 0 50px"
         gap={"2%"}
         w="90%"
         m="auto"
