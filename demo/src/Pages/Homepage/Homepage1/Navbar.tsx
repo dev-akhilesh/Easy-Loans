@@ -25,7 +25,7 @@ import {
 } from '@chakra-ui/icons';
 
 
-export default function WithSubnavigation() {
+export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 //   darkblue	#00008B	
 //   navy	#000080	
@@ -33,7 +33,7 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue('#030925', 'gray.800')}
+        bg={useColorModeValue('#0E0A20', 'gray.800')}
         color={useColorModeValue('#00008B', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
@@ -86,12 +86,15 @@ export default function WithSubnavigation() {
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'sm'}
             fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
+            color={"#58A0F7"}
+          borderRadius={"20px"}
+          border="1px solid #58A0F7"
+          bgColor={"#0E0A20"}
             href={'#'}
             _hover={{
-              bg: 'pink.300',
+              bg: "teal"
             }}>
+
             Register
           </Button>
         </Stack>
@@ -214,7 +217,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}>
         <Text
           fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
+          color={useColorModeValue('#6B6877', '#6B6877')}>
           {label}
         </Text>
         {children && (

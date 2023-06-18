@@ -2,7 +2,8 @@ import { Box, Button, Flex } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { ChakraSlider } from "../Components/slider";
 import { Link } from "react-router-dom";
-
+import { wrap } from "module";
+import { color } from "framer-motion";
 
 const EmiCalculator = () => {
   const [loanAmount, setLoanAmount] = useState<number>(5000);
@@ -36,15 +37,26 @@ const EmiCalculator = () => {
   }, [loanAmount, loanRate, loanTenure]);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "#130f24",
+        color: "white",
+        paddingBottom: "50px",
+      }}
+    >
       <Box
         textAlign="center"
         alignItems="center"
         justifyContent="center"
-        height={"100px"}
+        // height={"100px"}
         color="white"
-        backgroundColor={"#191970"}
-        marginTop={"50px"}
+        backgroundColor={"#171525"}
+        fontWeight={"bold"}
+        boxShadow="dark-lg"
+        p="6"
+        rounded="md"
+        // bg="white"
+        // marginTop={"50px"}
       >
         <Box fontSize={{ base: "24px", md: "40px" }}>
           Personal Loan EMI Calculator
@@ -64,15 +76,16 @@ const EmiCalculator = () => {
         <Box
           textAlign="center"
           display="flex"
-          alignItems="center"
+          // alignItems="center"
           justifyContent="center"
           fontSize={{ base: "16px", md: "24px" }}
           marginTop={{ base: "10px", md: "0" }}
-          marginBottom={{ base: "20px", md: "0" }}
+          marginBottom={"50px"}
+          // border={"1px solid white"}
         >
           EMI CALCULATOR
         </Box>
-        <Flex flexWrap="wrap">
+        <Flex flexWrap={"wrap"}>
           <Box width={{ base: "100%", md: "50%" }}>
             <ChakraSlider
               name={"Loan Amount"}
@@ -107,6 +120,12 @@ const EmiCalculator = () => {
             marginLeft={{ base: "0", md: "10%" }}
             width={{ base: "100%", md: "40%" }}
             textAlign="center"
+            style={{
+              backgroundColor: "#171525",
+              boxShadow: " rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
+              borderRadius: "5px",
+              padding: "20px",
+            }}
           >
             <Box>Your EMI Amount</Box>
             <Box fontSize={"30px"}>{emi}</Box>
@@ -118,9 +137,9 @@ const EmiCalculator = () => {
               <Button
                 fontSize={"24px"}
                 margin={"10px 0px 40px 0px"}
-                backgroundColor={"pink.300"}
+                backgroundColor={"#52DFFD"}
                 color={"white"}
-                _hover={{ backgroundColor: "pink.200" }}
+                _hover={{ backgroundColor: "red" }}
               >
                 Apply Loan
               </Button>
