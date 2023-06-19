@@ -2,7 +2,7 @@
 
 # Easy Loans
 
-![Easy Loans](loan-provider.jpg)
+![Easy Loans](https://i.imgur.com/j7hFmOP.jpg)
 
 Welcome to the Easy Loans GitHub repository! This repository houses the code and resources for a platform that offers loans specifically tailored for businesses. With our services, we aim to provide financial assistance to entrepreneurs and companies, helping them achieve their goals and fuel their growth.
 
