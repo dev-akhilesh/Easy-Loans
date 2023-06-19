@@ -59,3 +59,15 @@ To set up the Easy Loans  platform locally, follow these steps:
 
 ### Navbar
 ![Navbar](https://i.imgur.com/cGaQ0qV.png)
+
+### Home Page
+![HomePage](https://i.imgur.com/CmznmRp.png)
+
+### Footer 
+![Footer](https://i.imgur.com/moSQfNg.png)
+
+### Login Page
+![Login](https://i.imgur.com/1g9yhtf.png)
+
+### EMI Calculator
+[EMI Calculator](https://i.imgur.com/cvVfG8L.png)
