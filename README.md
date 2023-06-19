@@ -12,9 +12,8 @@ Welcome to the Easy Loans GitHub repository! This repository houses the code and
 - [Key Features](#key-features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [Contribution](#contributing)
+
 
 ## Introduction
 
@@ -31,4 +30,20 @@ To set up the Easy Loans  platform locally, follow these steps:
 1. Clone this repository to your local machine using the following command:
 
    ```shell
-   git clone https://github.com/
+   git clone https://github.com/dev-akhilesh/spiritual-school-8644.git
+   
+2. Navigate to the project directory:
+
+   ```shell
+   cd demo
+3. Install the required dependencies by running:
+
+   ```shell
+   npm install
+
+4. Start the application:
+   
+   ```shell
+   npm start
+   
+5. Access the platform by visiting http://localhost:3000 in your web browser.
