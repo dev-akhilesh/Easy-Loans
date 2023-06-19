@@ -11,7 +11,6 @@ Welcome to the Easy Loans GitHub repository! This repository houses the code and
 - [Introduction](#introduction)
 - [Key Features](#key-features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Contribution](#contributing)
 
 
