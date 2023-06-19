@@ -58,4 +58,4 @@ To set up the Easy Loans  platform locally, follow these steps:
 
 
 ### Navbar
-(https://i.imgur.com/cGaQ0qV.png)
+![Navbar](https://i.imgur.com/cGaQ0qV.png)
