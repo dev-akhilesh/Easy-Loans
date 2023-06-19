@@ -47,3 +47,15 @@ To set up the Easy Loans  platform locally, follow these steps:
    npm start
    
 5. Access the platform by visiting http://localhost:3000 in your web browser.
+
+
+## Contribution
+
+- [@dev-akhilesh](https://github.com/dev-akhilesh)(Team Lead)
+- [@abhimistry-07](https://github.com/abhimistry-07)
+- [@DeveshSuryawanshi](https://github.com/DeveshSuryawanshi)
+- [@GaneshYadav3142](https://github.com/GaneshYadav3142)
+
+
+### Navbar
+[Imgur](https://i.imgur.com/cGaQ0qV.png)
