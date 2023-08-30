@@ -1,18 +1,17 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Box, Button, Flex ,Text} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { ChakraSlider } from "../Components/slider";
 import { Link } from "react-router-dom";
-import { wrap } from "module";
-import { color } from "framer-motion";
-import { Bar } from 'react-chartjs-2';
 import { Barchart } from "../Components/Barchart";
-import { ArcElement, BarElement, CategoryScale, Chart, LinearScale, Tooltip, plugins } from "chart.js";
+import { ArcElement, BarElement, CategoryScale, Chart, ChartOptions, LineElement, LinearScale, PointElement, Tooltip, plugins } from "chart.js";
 import { Piechart } from "../Components/Piechart";
+import { Linechart } from "../Components/Linechart";
 
 Chart.register(CategoryScale);
 Chart.register(LinearScale)
 Chart.register(BarElement)
 Chart.register(ArcElement,Tooltip,plugins)
+Chart.register(PointElement,LineElement)
 const EmiCalculator = () => {
  
   
@@ -41,6 +40,8 @@ const EmiCalculator = () => {
       (Math.pow(1 + monthlyRate, totalMonths) - 1);
     setEmi(Number(emi.toFixed(1)));
   };
+
+  //BarChart Data //
   
   const chartData ={
     labels: ['EMI Amount', 'Total Payment', 'Total Interest'],
@@ -48,14 +49,16 @@ const EmiCalculator = () => {
       {
         label: 'Values',
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        borderColor: 'rgba(255,255,255,0.8)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        borderColor: '#f44336',
+        borderWidth: 2,
+        hoverBackgroundColor: '#43a047',
+        hoverBorderColor: '#43a047',
         data: [emi, emi* +loanTenure * 12, emi*  +loanTenure * 12 - loanAmount],
       },
     ],
   };
+
+  //Pie Chart Data//
 
   const pieChartData = {
     labels: ['EMI Amount', 'Total Payment', 'Total Interest'],
@@ -65,6 +68,49 @@ const EmiCalculator = () => {
         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
       },
     ],
+  };
+
+
+  //Line Chart Data//
+
+  const monthlyData = [];
+  const monthlyRate = loanRate / 120;
+  const totalMonths = loanTenure * 12;
+  
+  for (let i = 0; i < totalMonths; i++) {
+    const remainingPrincipal = emi * totalMonths - (emi * i);
+    const monthlyInterest = remainingPrincipal * monthlyRate;
+    const monthlyPrincipal = emi - monthlyInterest;
+    monthlyData.push(monthlyPrincipal);
+  }
+  const lineChartData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'], // Replace with your own labels
+    datasets: [
+      {
+        label: 'Monthly Data',
+        data: monthlyData, // Replace with your own data
+        fill: false,
+        borderColor: 'pink', // Replace with your desired color
+        tension: 0.3,
+      },
+    ],
+  };
+
+  const lineChartOptions = {
+    scales: {
+      x: {
+        beginAtZero: true,
+        grid: {
+          color: "#ffff", // Change the color of the x-axis grid lines
+        },
+      },
+      y: {
+        beginAtZero: true,
+        grid: {
+          color: "#ffff", // Change the color of the y-axis grid lines
+        },
+      },
+    },
   };
 
 
@@ -185,6 +231,9 @@ const EmiCalculator = () => {
         </Flex>
         </Box>
         <Box  >
+          <Box  mb={'20px'}>
+            <Text fontSize='5xl'>Stastical Analysis</Text>
+          </Box>
           <Flex gap={"100px"}>
             <Box width={"40%"} ml="10%" >
               <Barchart  data={chartData} 
@@ -192,13 +241,19 @@ const EmiCalculator = () => {
                  scales: {
                    x: {
                 type: 'category', // Using category scale for x-axis
-                labels: ['EMI Amount', 'Total Payment', 'Total Interest'], // Providing labels
+                labels: ['EMI Amount', 'Total Payment', 'Total Interest'],
+                grid: {
+                  color: "rgba(255, 255, 255, 0.1)", // Change the color of the x-axis grid lines
+                }, // Providing labels
                  },
                  y: {
                 beginAtZero: true,
                 ticks: {
                   stepSize: 500, // Adjust the step size as needed
                    },
+                   grid: {
+                    color: "rgba(255, 255, 255, 0.1)", // Change the color of the y-axis grid lines
+                  },
                   },
                   },
               }}/>
@@ -228,6 +283,13 @@ const EmiCalculator = () => {
               />
           </Box>
           </Flex>
+          <Box  width="80%" m={"10%"}>
+           {/* line CHart here should be implement */}
+
+          <Linechart data={lineChartData} options={lineChartOptions}/>
+
+
+          </Box>
       </Box>
     </div>
   );
