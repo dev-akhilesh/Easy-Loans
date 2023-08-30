@@ -1,7 +1,7 @@
 import { Toast, useToast } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 
-import { addUser, getData } from "../../redux/authReducer/action";
+import { addUser, getData } from "../../redux/AuthReducer/action";
 
 import style from "./Login.module.css";
 import imagelogo from "./Utiles/imagelogo.png";

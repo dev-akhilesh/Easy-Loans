@@ -4,8 +4,18 @@ import { ChakraSlider } from "../Components/slider";
 import { Link } from "react-router-dom";
 import { wrap } from "module";
 import { color } from "framer-motion";
+import { Bar } from 'react-chartjs-2';
+import { Barchart } from "../Components/Barchart";
+import { ArcElement, BarElement, CategoryScale, Chart, LinearScale, Tooltip, plugins } from "chart.js";
+import { Piechart } from "../Components/Piechart";
 
+Chart.register(CategoryScale);
+Chart.register(LinearScale)
+Chart.register(BarElement)
+Chart.register(ArcElement,Tooltip,plugins)
 const EmiCalculator = () => {
+ 
+  
   const [loanAmount, setLoanAmount] = useState<number>(5000);
   const [loanTenure, setLoanTenure] = useState<number>(0.25);
   const [loanRate, setLoanRate] = useState<number>(10.25);
@@ -31,6 +41,32 @@ const EmiCalculator = () => {
       (Math.pow(1 + monthlyRate, totalMonths) - 1);
     setEmi(Number(emi.toFixed(1)));
   };
+  
+  const chartData ={
+    labels: ['EMI Amount', 'Total Payment', 'Total Interest'],
+    datasets: [
+      {
+        label: 'Values',
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+        borderColor: 'rgba(255,255,255,0.8)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
+        data: [emi, emi* +loanTenure * 12, emi*  +loanTenure * 12 - loanAmount],
+      },
+    ],
+  };
+
+  const pieChartData = {
+    labels: ['EMI Amount', 'Total Payment', 'Total Interest'],
+    datasets: [
+      {
+        data: [emi, emi * +loanTenure * 12, emi * +loanTenure * 12 - loanAmount],
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+      },
+    ],
+  };
+
 
   useEffect(() => {
     calculateEMI();
@@ -127,6 +163,7 @@ const EmiCalculator = () => {
               padding: "20px",
             }}
           >
+           
             <Box>Your EMI Amount</Box>
             <Box fontSize={"30px"}>{emi}</Box>
             <Box fontSize={"24px"}>Total Payment</Box>
@@ -146,6 +183,51 @@ const EmiCalculator = () => {
             </Link>
           </Box>
         </Flex>
+        </Box>
+        <Box  >
+          <Flex gap={"100px"}>
+            <Box width={"40%"} ml="10%" >
+              <Barchart  data={chartData} 
+                options={{
+                 scales: {
+                   x: {
+                type: 'category', // Using category scale for x-axis
+                labels: ['EMI Amount', 'Total Payment', 'Total Interest'], // Providing labels
+                 },
+                 y: {
+                beginAtZero: true,
+                ticks: {
+                  stepSize: 500, // Adjust the step size as needed
+                   },
+                  },
+                  },
+              }}/>
+            </Box>
+          <Box width={"30%"}  >
+            <Piechart  data={pieChartData} 
+              options={{
+                plugins: {
+                  tooltip: {
+                    enabled: false, // Disable default tooltips
+                    external: (context) => {
+                      const dataIndex = context.tooltip.dataPoints[0].dataIndex;
+                      const label = pieChartData.labels[dataIndex];
+                      const value = pieChartData.datasets[0].data[dataIndex];
+                      const total = pieChartData.datasets[0].data.reduce((acc, val) => acc + val, 0);
+                      const percentage = ((value / total) * 100).toFixed(2);
+
+                      return (
+                        <div style={{ backgroundColor: 'white', padding: '5px' }}>
+                          {`${label}: ${value} (${percentage}%)`}
+                        </div>
+                      );
+                    },
+                  },
+                },
+              }}
+              />
+          </Box>
+          </Flex>
       </Box>
     </div>
   );
