@@ -1,4 +1,4 @@
-import { Box, Button, Flex ,Text} from "@chakra-ui/react";
+import { Box, Button, Flex ,Text,Heading} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { ChakraSlider } from "../Components/slider";
 import { Link } from "react-router-dom";
@@ -141,7 +141,7 @@ const EmiCalculator = () => {
         // marginTop={"50px"}
       >
         <Box fontSize={{ base: "24px", md: "40px" }}>
-          Personal Loan EMI Calculator
+          Personal Loan <Box as="span" color={"#58A0F7"}>EMI </Box>Calculator
         </Box>
         <Box fontSize={{ base: "14px", md: "20px" }}>
           Calculate your EMI and choose the most suitable product for you
@@ -220,7 +220,7 @@ const EmiCalculator = () => {
               <Button
                 fontSize={"24px"}
                 margin={"10px 0px 40px 0px"}
-                backgroundColor={"#52DFFD"}
+                backgroundColor={"#58A0F7"}
                 color={"white"}
                 _hover={{ backgroundColor: "red" }}
               >
@@ -230,12 +230,14 @@ const EmiCalculator = () => {
           </Box>
         </Flex>
         </Box>
-        <Box  >
-          <Box  mb={'20px'}>
-            <Text fontSize='5xl'>Stastical Analysis</Text>
+        <Box >
+          <Box  mb={'30px'}>
+            <Heading fontSize='5xl'>Stastical <Box as="span" color={"#58A0F7"}>Analysis</Box></Heading>
           </Box>
-          <Flex gap={"100px"}>
-            <Box width={"40%"} ml="10%" >
+          {/* <Flex gap={"100px"}> */}
+          <Box width="100%" display={{ base: 'block', md: 'flex' }} flexWrap={{ md: 'nowrap' }}>
+            <Box width={{ base: '100%', md: '40%' }} mb={{ base: '20px', md: 0 }} ml={"10%"}  boxShadow="dark-lg" rounded={"md"}>
+              <Heading  fontSize='3xl' color={"#58A0F7"}>Bar Chart</Heading>
               <Barchart  data={chartData} 
                 options={{
                  scales: {
@@ -258,7 +260,8 @@ const EmiCalculator = () => {
                   },
               }}/>
             </Box>
-          <Box width={"30%"}  >
+          <Box width={{ base: '100%', md: '30%' }} ml={"10%"}  boxShadow="dark-lg" rounded={"md"}>
+          <Heading  fontSize='3xl' color={"#58A0F7"}>Pie Chart</Heading>
             <Piechart  data={pieChartData} 
               options={{
                 plugins: {
@@ -282,10 +285,10 @@ const EmiCalculator = () => {
               }}
               />
           </Box>
-          </Flex>
-          <Box  width="80%" m={"10%"}>
+          </Box>
+          <Box  width="80%" m={{ base: "5%", md: "10%" }}  boxShadow="dark-lg" rounded={"md"}>
            {/* line CHart here should be implement */}
-
+           <Heading  fontSize='3xl' color={"#58A0F7"}>Line Chart</Heading>
           <Linechart data={lineChartData} options={lineChartOptions}/>
 
 
