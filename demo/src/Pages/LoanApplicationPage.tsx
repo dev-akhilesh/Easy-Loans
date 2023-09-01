@@ -27,27 +27,35 @@ export const LoanApplicationPage:React.FC = () => {
     e.preventDefault()
   }
   return (
+    <div style={{backgroundColor:"#130f24"}}>
     <Box
     p={4}
     maxW="lg"
     mx="auto"
-    borderWidth="1px"
+    bg={"#171525"}
     borderRadius="lg"
-    boxShadow="md"
+    boxShadow="dark-lg" 
+    rounded={"md"}
+    color={"gray.800"}
   >
-    <Heading as="h2" size="xl" mb={4}>
+    <Heading as="h2" size="xl" mb={4} color={"white"}>
       Loan Application Form
     </Heading>
     <form onSubmit={handleSubmit}>
       <VStack spacing={4} align="start">
         <FormControl id="name" isRequired>
-          <FormLabel>Name</FormLabel>
-          <Input type="text" placeholder="Your Name" name="name" />
+          <FormLabel color={"white"}>Name</FormLabel>
+          <Input type="text" 
+          placeholder="Your Name" 
+          name="name" 
+          border={"none"}
+          bg={"white"}
+          />
         </FormControl>
 
         <FormControl id="loanType" isRequired>
-          <FormLabel>Type of Loan</FormLabel>
-          <Select placeholder="Select Loan Type" name="loanType">
+          <FormLabel color={"white"}>Type of Loan</FormLabel>
+          <Select placeholder="Select Loan Type" name="loanType" border={"none"}  bg={"white"}>
             <option value="personal">Personal Loan</option>
             <option value="home">Home Loan</option>
             <option value="auto">Auto Loan</option>
@@ -56,61 +64,82 @@ export const LoanApplicationPage:React.FC = () => {
         </FormControl>
 
         <FormControl id="loanAmount" isRequired>
-          <FormLabel>Loan Amount</FormLabel>
-          <Input type="number" placeholder="Loan Amount" name="loanAmount" defaultValue={loanAmount}/>
+          <FormLabel color={"white"}>Loan Amount</FormLabel>
+          <Input type="number" 
+          placeholder="Loan Amount" 
+          name="loanAmount" 
+          border={"none"} 
+          defaultValue={loanAmount}
+           bg={"white"}
+           />
         </FormControl>
 
         <FormControl id="loanTenure" isRequired>
-          <FormLabel>Loan Tenure (years)</FormLabel>
-          <Input type="number" placeholder="Loan Tenure" name="loanTenure" defaultValue={loanTenure}/>
-        </FormControl>
-
-        <FormControl id="loanTenure" isRequired>
-          <FormLabel>Loan Tenure (years)</FormLabel>
-          <Input type="number" placeholder="Loan Tenure" name="loanTenure" defaultValue={loanTenure}/>
-        </FormControl>
-
-        <FormControl id="loanTenure" isRequired>
-          <FormLabel>Loan Tenure (years)</FormLabel>
-          <Input type="number" placeholder="Loan Tenure" name="loanTenure" defaultValue={loanTenure}/>
-        </FormControl>
-        <FormControl id="loanTenure" isRequired>
-          <FormLabel>Loan Tenure (years)</FormLabel>
-          <Input type="number" placeholder="Loan Tenure" name="loanTenure" defaultValue={loanTenure}/>
+          <FormLabel color={"white"}>Loan Tenure (years)</FormLabel>
+          <Input type="number" 
+          placeholder="Loan Tenure" 
+          name="loanTenure" 
+          border={"none"} 
+          defaultValue={loanTenure}
+           bg={"white"}
+           />
         </FormControl>
 
         <FormControl id="emi" isRequired>
-          <FormLabel>EMI Amount</FormLabel>
-          <Input type="number" placeholder="EMI Amount" name="emi" defaultValue={emi}/>
+          <FormLabel color={"white"}>EMI Amount</FormLabel>
+          <Input type="number" 
+          placeholder="EMI Amount" 
+          name="emi"  
+          border={"none"} 
+          defaultValue={emi}
+          bg={"white"}
+          />
         </FormControl>
 
         <FormControl id="loanRate" isRequired>
-          <FormLabel>Loan Rate (% p.a.)</FormLabel>
-          <Input type="number" placeholder="Loan Rate" name="loanRate" defaultValue={loanRate}/>
+          <FormLabel color={"white"}>Loan Rate (% p.a.)</FormLabel>
+          <Input type="number" 
+          placeholder="Loan Rate" 
+          name="loanRate" 
+          border={"none"}  
+          defaultValue={loanRate}
+          bg={"white"}
+          />
         </FormControl>
 
         <FormControl id="address" isRequired>
-          <FormLabel>Address</FormLabel>
-          <Input type="text" placeholder="Your Address" name="address" />
+          <FormLabel color={"white"}>Address</FormLabel>
+          <Input type="text" 
+          placeholder="Your Address" 
+          border={"none"} 
+          name="address" 
+          bg={"white"}
+          />
         </FormControl>
 
         <FormControl id="bankAccountNo" isRequired>
-          <FormLabel>Bank Account Number</FormLabel>
+          <FormLabel color={"white"}>Bank Account Number</FormLabel>
           <Input
             type="text"
             placeholder="Bank Account Number"
             name="bankAccountNo"
+            border={"none"}
+            bg={"white"}
           />
         </FormControl>
 
         <FormControl id="cibilScore" isRequired>
-          <FormLabel>CIBIL Score</FormLabel>
-          <Input type="number" placeholder="CIBIL Score" name="cibilScore" />
+          <FormLabel color={"white"}>CIBIL Score</FormLabel>
+          <Input type="number"
+           placeholder="CIBIL Score" 
+           name="cibilScore" 
+           border={"none"} 
+          bg={"white"}/>
         </FormControl>
 
         <Button
           type="submit"
-          colorScheme="teal"
+          bg="#9fb43a"
           width="100%"
           mt={4}
           size="lg"
@@ -120,6 +149,7 @@ export const LoanApplicationPage:React.FC = () => {
       </VStack>
     </form>
   </Box>
+  </div>
 );
 };
   
