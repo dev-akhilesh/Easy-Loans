@@ -17,7 +17,7 @@ const EmiCalculator = () => {
   
   const [loanAmount, setLoanAmount] = useState<number>(5000);
   const [loanTenure, setLoanTenure] = useState<number>(0.25);
-  const [loanRate, setLoanRate] = useState<number>(10.25);
+  const [loanRate, setLoanRate] = useState<number>(8.25);
   const [emi, setEmi] = useState<number>(0);
 
   const handleLoanAmount = (e: number) => {
@@ -191,7 +191,7 @@ const EmiCalculator = () => {
               name={"Rate Of Interest (% p.a.)"}
               amount="10.25"
               width="70%"
-              min="10.25"
+              min="8.25"
               max="30"
               steps="0.25"
               onChange={handleLoanRate}
@@ -236,7 +236,7 @@ const EmiCalculator = () => {
           </Box>
           {/* <Flex gap={"100px"}> */}
           <Box width="100%" display={{ base: 'block', md: 'flex' }} flexWrap={{ md: 'nowrap' }}>
-            <Box width={{ base: '100%', md: '40%' }} mb={{ base: '20px', md: 0 }} ml={"10%"}  boxShadow="dark-lg" rounded={"md"}>
+            <Box width={{ base: '100%', md: '40%' }} mb={{ base: '20px', md: 0 }} ml="10%"  boxShadow="dark-lg" rounded={"md"}>
               <Heading  fontSize='3xl' color={"#58A0F7"}>Bar Chart</Heading>
               <Barchart  data={chartData} 
                 options={{

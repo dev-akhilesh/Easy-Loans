@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <Box bgColor={colorMode}>
       <Flex
-        bg={useColorModeValue("#0E0A20", "gray.800")}
+        bg={useColorModeValue("#0E0A20", "pink")}
         color={useColorModeValue("#00008B", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -65,7 +65,7 @@ export default function Navbar() {
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
+            color={useColorModeValue("gray.800", "blue")}
           >
             <Image
               src={require("../HomePage2/Utiles/EasyLoan Logo.jpg")}
