@@ -1,4 +1,5 @@
 import { Box, Button, Flex ,Text,Heading} from "@chakra-ui/react";
+
 import React, { useEffect, useState } from "react";
 import { ChakraSlider } from "../Components/slider";
 import { Link } from "react-router-dom";
@@ -113,6 +114,20 @@ const EmiCalculator = () => {
     },
   };
 
+  //passing query paramters
+
+  const constructLoanApplicationURL = () => {
+    const queryParams = new URLSearchParams({
+      loanTenure: loanTenure.toString(),
+      loanRate: loanRate.toString(),
+      emi: emi.toString(),
+      loanAmount: loanAmount.toString(),
+    });
+
+    return `/loanApplicationPage?${queryParams.toString()}`;
+  };
+
+
 
   useEffect(() => {
     calculateEMI();
@@ -216,7 +231,7 @@ const EmiCalculator = () => {
             <Box>{(emi * +loanTenure * 12).toFixed(0)}</Box>
             <Box fontSize={"24px"}>Total Interest</Box>
             <Box>{(emi * +loanTenure * 12 - loanAmount).toFixed(0)}</Box>
-            <Link to="/loanApplicationPage">
+            <Link to={constructLoanApplicationURL()}>
               <Button
                 fontSize={"24px"}
                 margin={"10px 0px 40px 0px"}
