@@ -65,6 +65,20 @@ export const LoanApplicationPage:React.FC = () => {
           <Input type="number" placeholder="Loan Tenure" name="loanTenure" defaultValue={loanTenure}/>
         </FormControl>
 
+        <FormControl id="loanTenure" isRequired>
+          <FormLabel>Loan Tenure (years)</FormLabel>
+          <Input type="number" placeholder="Loan Tenure" name="loanTenure" defaultValue={loanTenure}/>
+        </FormControl>
+
+        <FormControl id="loanTenure" isRequired>
+          <FormLabel>Loan Tenure (years)</FormLabel>
+          <Input type="number" placeholder="Loan Tenure" name="loanTenure" defaultValue={loanTenure}/>
+        </FormControl>
+        <FormControl id="loanTenure" isRequired>
+          <FormLabel>Loan Tenure (years)</FormLabel>
+          <Input type="number" placeholder="Loan Tenure" name="loanTenure" defaultValue={loanTenure}/>
+        </FormControl>
+
         <FormControl id="emi" isRequired>
           <FormLabel>EMI Amount</FormLabel>
           <Input type="number" placeholder="EMI Amount" name="emi" defaultValue={emi}/>
