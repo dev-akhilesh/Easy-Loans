@@ -1,5 +1,6 @@
 
 import React from "react";
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -11,6 +12,7 @@ import {
   VStack,
   Heading,
 } from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
 
 export const LoanApplicationPage:React.FC = () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -20,11 +22,47 @@ export const LoanApplicationPage:React.FC = () => {
   const loanRate = queryParams.get("loanRate") || "";
   const emi = queryParams.get("emi") || "";
   const loanAmount = queryParams.get("loanAmount") || "";
+  const [cibilScore,setCibilScore]=useState<number>(0)
+  const toast=useToast()
   console.log(loanAmount,loanAmount,loanRate,loanTenure,emi)
 
 
   const handleSubmit=(e:React.FormEvent)=>{
     e.preventDefault()
+    const formData = new FormData(e.target as HTMLFormElement);
+    const formValues: Record<string, string> = {};
+
+    formData.forEach((value, key) => {
+      formValues[key] = value as string;
+    });
+
+    // Check CIBIL score
+    const cibilScoreValue = parseInt(formValues["cibilScore"], 10);
+
+    if (cibilScoreValue < 300) {
+      // Show a toast message if CIBIL score is too low
+      toast({
+        title: 'Loan Rejected.',
+        description: "Cibil Score too low to approved.",
+        position: 'top',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
+    } else {
+      // Store form data in local storage
+      localStorage.setItem("loanApplicationData", JSON.stringify(formValues));
+      toast({
+        title: 'Application Approved.',
+        description: "Data Verification is in Process.",
+        position: 'top',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+      // Redirect to the thank-you page using window.location
+      window.location.href = "/thankYouPage";
+    }
   }
   return (
     <div style={{backgroundColor:"#130f24"}}>
