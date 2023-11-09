@@ -1,5 +1,3 @@
-# spiritual-school-8644
-
 # Easy Loans
 
 ![Easy Loans](https://i.imgur.com/j7hFmOP.jpg)
